@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>House Pricing Prediction - Faculty of Information Systems</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+
+    <!-- ======= TOP TITLE ======= -->
+    <item>
+     <widget class="QLabel" name="labelTitle">
+      <property name="text">
+       <string>House Pricing Prediction</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 20pt; font-weight: bold; background-color: yellow;</string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- ======= DATASET PANEL ======= -->
+    <item>
+     <layout class="QHBoxLayout" name="datasetLayout">
+      <item>
+       <widget class="QLabel" name="labelDataset">
+        <property name="text">
+         <string>Select Dataset:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineDataset"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPickDataset">
+        <property name="text">
+         <string>1. Pick Dataset</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnViewDataset">
+        <property name="text">
+         <string>2. View Dataset</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- ======= TRAINING RATE PANEL ======= -->
+    <item>
+     <layout class="QHBoxLayout" name="trainLayout">
+      <item>
+       <widget class="QLabel" name="labelTrainRate">
+        <property name="text">
+         <string>Training Rate (%):</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinTrainRate">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>80</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnTrain">
+        <property name="text">
+         <string>3. Train Model</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnEvaluate">
+        <property name="text">
+         <string>4. Evaluate Model</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- ======= EVALUATION AREA ======= -->
+    <item>
+     <layout class="QHBoxLayout" name="evaluationLayout">
+
+      <!-- TABLE VIEW -->
+      <item>
+       <widget class="QTableWidget" name="tableResults">
+        <column>
+         <property name="text">
+          <string>Avg. Area Income</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+
+      <!-- RIGHT PANEL -->
+      <item>
+       <layout class="QVBoxLayout" name="coefLayout">
+        <item>
+         <widget class="QLabel" name="labelCoef">
+          <property name="text">
+           <string>Coefficient:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textCoef"/>
+        </item>
+
+        <item>
+         <layout class="QFormLayout" name="metricLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelMAE">
+            <property name="text">
+             <string>Mean Absolute Error (MAE):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineMAE"/>
+          </item>
+
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelMSE">
+            <property name="text">
+             <string>Mean Square Error (MSE):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineMSE"/>
+          </item>
+
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelRMSE">
+            <property name="text">
+             <string>Root Mean Square Error (RMSE):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineRMSE"/>
+          </item>
+         </layout>
+        </item>
+
+        <item>
+         <layout class="QHBoxLayout" name="modelButtons">
+          <item>
+           <widget class="QPushButton" name="btnSaveModel">
+            <property name="text">
+             <string>5. Save Model</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnLoadModel">
+            <property name="text">
+             <string>6. Load Model</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboModels">
+            <item><property name="text"><string>model_1</string></property></item>
+            <item><property name="text"><string>model_2</string></property></item>
+            <item><property name="text"><string>model_3</string></property></item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+
+    <!-- ======= PREDICTION INPUTS ======= -->
+    <item>
+     <layout class="QFormLayout" name="predictLayout">
+      <item row="0" column="0"><widget class="QLabel" name="lblIncome"><property name="text"><string>Avg. Area Income:</string></property></widget></item>
+      <item row="0" column="1"><widget class="QLineEdit" name="lineIncome"/></item>
+
+      <item row="1" column="0"><widget class="QLabel" name="lblAge"><property name="text"><string>Avg. Area House Age:</string></property></widget></item>
+      <item row="1" column="1"><widget class="QLineEdit" name="lineAge"/></item>
+
+      <item row="2" column="0"><widget class="QLabel" name="lblRooms"><property name="text"><string>Avg. Area Number of Rooms:</string></property></widget></item>
+      <item row="2" column="1"><widget class="QLineEdit" name="lineRooms"/></item>
+
+      <item row="3" column="0"><widget class="QLabel" name="lblBedrooms"><property name="text"><string>Avg. Area Number of Bedrooms:</string></property></widget></item>
+      <item row="3" column="1"><widget class="QLineEdit" name="lineBedrooms"/></item>
+
+      <item row="4" column="0"><widget class="QLabel" name="lblPopulation"><property name="text"><string>Area Population:</string></property></widget></item>
+      <item row="4" column="1"><widget class="QLineEdit" name="linePopulation"/></item>
+
+      <item row="5" column="0"><widget class="QLabel" name="lblPrediction"><property name="text"><string>Prediction Price:</string></property></widget></item>
+      <item row="5" column="1"><widget class="QLineEdit" name="linePrediction"/></item>
+     </layout>
+    </item>
+
+    <!-- ======= BUTTON PREDICT ======= -->
+    <item>
+     <widget class="QPushButton" name="btnPredict">
+      <property name="text">
+       <string>7. Prediction House Pricing</string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- ======= FOOTER ======= -->
+    <item>
+     <widget class="QLabel" name="footerLabel">
+      <property name="text">
+       <string>Designed by: Tran Duy Thanh</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
